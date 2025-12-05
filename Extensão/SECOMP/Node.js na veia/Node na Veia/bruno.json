@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Node na Veia",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

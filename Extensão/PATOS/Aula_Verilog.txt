@@ -1,0 +1,2 @@
+wire [7:0] vector; //8 bits
+assign a = vector[2] //Sai terceiro digito

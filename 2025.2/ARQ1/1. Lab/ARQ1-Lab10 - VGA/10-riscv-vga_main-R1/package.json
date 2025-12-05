@@ -1,0 +1,19 @@
+{
+  "name": "10-riscv-vga_main-r1",
+  "version": "1.0.0",
+  "description": "O objetivo desta prática é adicionar instruções de manipulação de bytes ao processor RISC-V multiciclo. Estamos usando um [gerador de vídeo no padrão VGA](vga.sv) que calcula um endereço de memória e busca dados em um *frame buffer* para apresentar na tela. O `Makefile` desta pasta processa o arquivo [`riscv.asm`](riscv.asm), gera o arquivo `.hex` para  a memória e faz a simulação, enquanto [o da pasta superior](../Makefile) pode ser usado para programar a placa.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "digitaljs": "^0.14.0"
+  }
+}

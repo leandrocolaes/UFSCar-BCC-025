@@ -1,0 +1,6 @@
+---
+week: ""
+---
+
+[[Lineralização]]
+#Médias 

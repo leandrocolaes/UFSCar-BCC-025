@@ -1,0 +1,6 @@
+---
+week: ""
+---
+
+[[Valor Médio]]
+#Médias 

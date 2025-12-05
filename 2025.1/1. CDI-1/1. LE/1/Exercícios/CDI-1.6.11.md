@@ -1,0 +1,5 @@
+---
+week: ""
+---
+
+[[Domínio das Inversas]]

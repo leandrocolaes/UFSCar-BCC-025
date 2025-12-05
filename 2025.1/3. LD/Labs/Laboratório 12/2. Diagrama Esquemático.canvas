@@ -1,0 +1,25 @@
+{
+	"nodes":[
+		{"id":"25b6794c36a8fab0","type":"group","x":160,"y":-460,"width":1380,"height":620,"label":"top.v"},
+		{"id":"26b17ede028f582c","type":"text","text":"**mux (cat)**\n 0: cout[31:28]]\n1: val = cout[27:24];","x":460,"y":-421,"width":220,"height":116,"color":"3"},
+		{"id":"9307e3190ad1220b","type":"text","text":"Somador \n\n","x":200,"y":-55,"width":140,"height":60,"color":"3"},
+		{"id":"5bf58d2d103b28fd","type":"text","text":"dec7seg dig","x":880,"y":-390,"width":250,"height":60,"color":"3"},
+		{"id":"48c8fdb41d7a8fd3","type":"text","text":"jb #3","x":1640,"y":-129,"width":125,"height":60,"color":"1"},
+		{"id":"f204146df90b41f2","type":"text","text":"jc #3","x":1640,"y":-9,"width":125,"height":50,"color":"1"},
+		{"id":"b23312594cf8a93d","type":"file","file":"1. Cursos/2025.1/3. LD/Labs/Laboratório 12/display.png","x":1640,"y":-463,"width":131,"height":267,"color":"1"},
+		{"id":"762a7a08f7a2eaf4","type":"text","text":"CLK","x":-48,"y":-55,"width":106,"height":60,"color":"5"},
+		{"id":"caf34a2c37fb22df","type":"text","text":"SWITCHS","x":-120,"y":-154,"width":178,"height":50,"color":"5"},
+		{"id":"12be96b6b181a168","type":"text","text":"","x":1130,"y":-45,"width":200,"height":50}
+	],
+	"edges":[
+		{"id":"ad386d56e1bb8597","fromNode":"5bf58d2d103b28fd","fromSide":"right","toNode":"b23312594cf8a93d","toSide":"left","toEnd":"none","label":"segs #7"},
+		{"id":"893efaa2b38d799c","fromNode":"762a7a08f7a2eaf4","fromSide":"right","toNode":"9307e3190ad1220b","toSide":"left","toEnd":"none"},
+		{"id":"6638ae9764743ef6","fromNode":"9307e3190ad1220b","fromSide":"right","toNode":"26b17ede028f582c","toSide":"left","toEnd":"none","label":"count #32 "},
+		{"id":"514e082dacf53d3a","fromNode":"26b17ede028f582c","fromSide":"right","toNode":"5bf58d2d103b28fd","toSide":"left","toEnd":"none","label":"val #4"},
+		{"id":"7063c346fe292b05","fromNode":"12be96b6b181a168","fromSide":"left","toNode":"5bf58d2d103b28fd","toSide":"right","toEnd":"none"},
+		{"id":"e76f7dcaad738a01","fromNode":"12be96b6b181a168","fromSide":"left","toNode":"9307e3190ad1220b","toSide":"right","toEnd":"none","label":"cat #1"},
+		{"id":"9ad7e74a9892f0cc","fromNode":"12be96b6b181a168","fromSide":"right","toNode":"48c8fdb41d7a8fd3","toSide":"left","toEnd":"none"},
+		{"id":"443ae5060a2b7072","fromNode":"f204146df90b41f2","fromSide":"left","toNode":"12be96b6b181a168","toSide":"right","toEnd":"none"},
+		{"id":"75ac8652efad7068","fromNode":"9307e3190ad1220b","fromSide":"right","toNode":"26b17ede028f582c","toSide":"bottom","toEnd":"none","label":"cat#1"}
+	]
+}

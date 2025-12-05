@@ -1,0 +1,14 @@
+Escreva um programa que repita os seguintes passos:
+
+(a) Leia  inteiros N e M e  aloque dinamicamente uma matriz (de inteiros) de dimensões NxM
+
+(b) armazene os valores aleatórios de 0 a 10 na matriz (Veja como gerar números aleatórios em C: http://linguagemc.com.br/valores-aleatorios-em-c-com-a-funcao-rand/)
+
+(c) Imprima a matriz.
+
+(d) em seguida, leia um valor inteiro X, e imprima "SIM" caso o valor esteja na matriz
+ou imprima "NAO" caso não esteja na matriz. Solicite a leitura de um novo valor para X e faça uma nova busca até que seja digitado -1.
+
+Obs1: Verifique se houve erro durante a alocação de memória.
+
+Obs2: Libere a memória alocada quando não for mais necessária

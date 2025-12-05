@@ -1,0 +1,30 @@
+\documentclass{exam}
+\usepackage{amsmath, amssymb, tikz, hyperref, amsthm}
+\usepackage[portuguese]{babel}
+\title{Introdução à grafos}
+\date{}
+\begin{document}
+	\textbf{2. }
+	Usaremos a \textbf{distribuição geométrica} para resolver tal problema, pois é usado sucessivas tentativas com duas opções prováveis: fracasso e sucesso, sendo o sucesso aparece uma única vez e o restante é composto por fracassos. 
+	
+	Para calcular a média de uma distribuição geométrica($\mu$) é $1/p$, sendo $p$ a probabilidade de sucesso e como a probabilidade que o número de tentativas maiores seja igual a $5$ é extremamente baixa, $$P(X = 5) = 0.9 \cdot 0.1^{4} = 0.0009$$, por meio de uma resposta aproximada não serão consideradas. Então, $\frac{1}{0.9}*10$(custo dos cincos primeiros experimentos)$=11.\overline{1}$.
+	
+	
+	\textbf{3.}
+	Tal exercício pode ser o resultado da \textbf{distrição binominal} usando a equação $$\binom{n}{x}p^xq^{n-x}$$, sabendo que $p$ é a probabilidade de defeito valendo $\frac{1}{10}$ e $q = 1 - p = \frac{9}{10}$ seja a probabilidade que o produto esteja em boas condições.
+	
+	\textbf{a.}
+	Nesse caso temos $$\binom{4}{0}0.1^0 0.9^{4-0} = 0.6561$$
+	
+	\textbf{b.}
+	Alterando o $x$ para um (um defeito):
+		$$\binom{4}{1}0.1^1 0.9^{4-1} = 4 \cdot 0.1 \cdot 0.729 = 0.2916$$
+
+	\textbf{c.}
+	Alterando o $x$ para 2:
+	$$\binom{4}{2}0.1^2 0.9^{4-2} = 6 \cdot 0.01 \cdot 0.81 = 0.0486$$	 
+	
+	\textbf{d.}
+	Os itens $a$, $b$ e $c$ já comprem todas as possibilidades que o possui $2$ defeitos ou menos, então somaremos eles. $$0.6561 + 0.2916 + 0.0486 = 0.9963.$$
+	
+\end{document}

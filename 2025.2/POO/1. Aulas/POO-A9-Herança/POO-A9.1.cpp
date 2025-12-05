@@ -1,0 +1,90 @@
+#include <iostream>
+
+using namespace std;
+
+class Ponto {
+	private:
+		int x;
+		int y;
+	public:
+		Ponto(int a, int b);
+		void set_x(int valor);
+		void set_y(int valor);
+		int get_x() const;
+		int get_y() const;
+		void print() const;
+};
+Ponto::Ponto(int a, int b){
+	x = a;
+	y = b;
+}
+void Ponto::set_x(int valor){
+	x = valor;
+}
+void Ponto::set_y(int valor){
+	y = valor;
+}
+int Ponto::get_x() const {
+	return x;
+}
+int Ponto::get_y() const {
+	return y;
+}
+void Ponto::print() const {
+	cout << "(" << get_x() << ", " << get_y() << ")" << endl;
+}
+
+
+class Circulo : public Ponto{
+	private:
+		int raio;
+	public:
+		Circulo(int = 0, int = 0, int = 0);
+		int get_raio() const;
+		void set_raio(int valor);
+		void print() const;
+};
+Circulo::Circulo(int x, int y, int r)	:Ponto(x, y) {
+		set_raio(r);
+
+}
+void Circulo::set_raio(int valor) {
+	raio = valor;
+}
+int Circulo::get_raio() const {
+	return raio;
+}
+void Circulo::print() const{
+	cout << "(" << get_x() << ", " << get_y() << ", " << get_raio() << ")" << endl;
+}
+
+
+class Cilindro : public Circulo {
+	private:
+		int h;
+	public:
+		Cilindro(int = 0, int = 0, int = 0, int = 0);
+		void set_altura(int);
+		int get_altura() const;
+		void print() const;
+};
+Cilindro::Cilindro(int x, int y, int r, int h ): Circulo(x, y, r) {
+	set_altura(h);
+}
+void Cilindro::set_altura(int h) {
+	this->h = h;
+}
+int Cilindro::get_altura() const {
+	return h;
+}
+void Cilindro::print() const{
+	cout << "(" << get_x() << ", " << get_y() << ", " << get_raio() << ", " << get_altura() << endl;
+}
+
+int main () {
+	Cilindro c1(1, 2, 3, 4);
+	Circulo c2(1, 2, 3);
+	c2.print();
+	c1.print();
+	return 0;
+}

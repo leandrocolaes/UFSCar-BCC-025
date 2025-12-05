@@ -1,0 +1,4 @@
+somas_1.txt 352
+somas_2.txt 2049
+somas_3.txt 41984
+somas_4.txt 44071

@@ -1,0 +1,1139 @@
+Analysis & Synthesis report for 10-riscv-vga
+Wed Dec  3 09:16:27 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |top|riscvmulti:cpu|state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Registers Packed Into Inferred Megafunctions
+ 14. Registers Added for RAM Pass-Through Logic
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for mem:ram|altsyncram:RAM_rtl_0|altsyncram_ohr1:auto_generated
+ 17. Source assignments for mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated
+ 18. Source assignments for riscvmulti:cpu|altsyncram:RegisterBank_rtl_0|altsyncram_5io1:auto_generated
+ 19. Source assignments for riscvmulti:cpu|altsyncram:RegisterBank_rtl_1|altsyncram_5io1:auto_generated
+ 20. Parameter Settings for User Entity Instance: Top-level Entity: |top
+ 21. Parameter Settings for User Entity Instance: vga:gpu
+ 22. Parameter Settings for Inferred Entity Instance: mem:ram|altsyncram:RAM_rtl_0
+ 23. Parameter Settings for Inferred Entity Instance: mem:ram|altsyncram:RAM_rtl_1
+ 24. Parameter Settings for Inferred Entity Instance: riscvmulti:cpu|altsyncram:RegisterBank_rtl_0
+ 25. Parameter Settings for Inferred Entity Instance: riscvmulti:cpu|altsyncram:RegisterBank_rtl_1
+ 26. altsyncram Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "mem:ram"
+ 28. Post-Synthesis Netlist Statistics for Top Partition
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
+ 31. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Dec  3 09:16:27 2025           ;
+; Quartus Prime Version           ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
+; Revision Name                   ; 10-riscv-vga                                    ;
+; Top-level Entity Name           ; top                                             ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 260                                             ;
+; Total pins                      ; 80                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 16,384                                          ;
+; Total DSP Blocks                ; 0                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
+; Top-level entity name                                                           ; top                ; 10-riscv-vga       ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 10          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 10          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-10        ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                          ;
++----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path       ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                                                       ; Library ;
++----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; ./dec7seg.sv                           ; yes             ; User SystemVerilog HDL File                           ; /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/dec7seg.sv                             ;         ;
+; ./mem.sv                               ; yes             ; User SystemVerilog HDL File                           ; /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/mem.sv                                 ;         ;
+; ./power_on_reset.sv                    ; yes             ; User SystemVerilog HDL File                           ; /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/power_on_reset.sv                      ;         ;
+; ./riscvmulti.sv                        ; yes             ; User SystemVerilog HDL File                           ; /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/riscvmulti.sv                          ;         ;
+; ./top.sv                               ; yes             ; User SystemVerilog HDL File                           ; /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv                                 ;         ;
+; ./vga.sv                               ; yes             ; User SystemVerilog HDL File                           ; /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/vga.sv                                 ;         ;
+; riscv.hex                              ; yes             ; Auto-Found Hexadecimal (Intel-Format) File            ; /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/riscv.hex                              ;         ;
+; altsyncram.tdf                         ; yes             ; Megafunction                                          ; /opt/intelFPGA/24.1/quartus/libraries/megafunctions/altsyncram.tdf                                                                                 ;         ;
+; stratix_ram_block.inc                  ; yes             ; Megafunction                                          ; /opt/intelFPGA/24.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                          ;         ;
+; lpm_mux.inc                            ; yes             ; Megafunction                                          ; /opt/intelFPGA/24.1/quartus/libraries/megafunctions/lpm_mux.inc                                                                                    ;         ;
+; lpm_decode.inc                         ; yes             ; Megafunction                                          ; /opt/intelFPGA/24.1/quartus/libraries/megafunctions/lpm_decode.inc                                                                                 ;         ;
+; aglobal241.inc                         ; yes             ; Megafunction                                          ; /opt/intelFPGA/24.1/quartus/libraries/megafunctions/aglobal241.inc                                                                                 ;         ;
+; a_rdenreg.inc                          ; yes             ; Megafunction                                          ; /opt/intelFPGA/24.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                                                  ;         ;
+; altrom.inc                             ; yes             ; Megafunction                                          ; /opt/intelFPGA/24.1/quartus/libraries/megafunctions/altrom.inc                                                                                     ;         ;
+; altram.inc                             ; yes             ; Megafunction                                          ; /opt/intelFPGA/24.1/quartus/libraries/megafunctions/altram.inc                                                                                     ;         ;
+; altdpram.inc                           ; yes             ; Megafunction                                          ; /opt/intelFPGA/24.1/quartus/libraries/megafunctions/altdpram.inc                                                                                   ;         ;
+; db/altsyncram_ohr1.tdf                 ; yes             ; Auto-Generated Megafunction                           ; /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_ohr1.tdf                 ;         ;
+; db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif ;         ;
+; db/altsyncram_5io1.tdf                 ; yes             ; Auto-Generated Megafunction                           ; /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_5io1.tdf                 ;         ;
++----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 342            ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 496            ;
+;     -- 7 input functions                    ; 9              ;
+;     -- 6 input functions                    ; 101            ;
+;     -- 5 input functions                    ; 191            ;
+;     -- 4 input functions                    ; 82             ;
+;     -- <=3 input functions                  ; 113            ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 260            ;
+;                                             ;                ;
+; I/O pins                                    ; 80             ;
+; Total MLAB memory bits                      ; 0              ;
+; Total block memory bits                     ; 16384          ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 357            ;
+; Total fan-out                               ; 5051           ;
+; Average fan-out                             ; 4.88           ;
++---------------------------------------------+----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                    ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                              ; Entity Name     ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------+-----------------+--------------+
+; |top                                      ; 496 (9)             ; 260 (35)                  ; 16384             ; 0          ; 80   ; 0            ; |top                                                                             ; top             ; work         ;
+;    |dec7seg:hex0|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|dec7seg:hex0                                                                ; dec7seg         ; work         ;
+;    |dec7seg:hex1|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|dec7seg:hex1                                                                ; dec7seg         ; work         ;
+;    |dec7seg:hex2|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|dec7seg:hex2                                                                ; dec7seg         ; work         ;
+;    |dec7seg:hex3|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|dec7seg:hex3                                                                ; dec7seg         ; work         ;
+;    |dec7seg:hex4|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|dec7seg:hex4                                                                ; dec7seg         ; work         ;
+;    |dec7seg:hex5|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|dec7seg:hex5                                                                ; dec7seg         ; work         ;
+;    |mem:ram|                              ; 0 (0)               ; 0 (0)                     ; 14336             ; 0          ; 0    ; 0            ; |top|mem:ram                                                                     ; mem             ; work         ;
+;       |altsyncram:RAM_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |top|mem:ram|altsyncram:RAM_rtl_0                                                ; altsyncram      ; work         ;
+;          |altsyncram_ohr1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192              ; 0          ; 0    ; 0            ; |top|mem:ram|altsyncram:RAM_rtl_0|altsyncram_ohr1:auto_generated                 ; altsyncram_ohr1 ; work         ;
+;       |altsyncram:RAM_rtl_1|              ; 0 (0)               ; 0 (0)                     ; 6144              ; 0          ; 0    ; 0            ; |top|mem:ram|altsyncram:RAM_rtl_1                                                ; altsyncram      ; work         ;
+;          |altsyncram_ohr1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 6144              ; 0          ; 0    ; 0            ; |top|mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated                 ; altsyncram_ohr1 ; work         ;
+;    |power_on_reset:por|                   ; 1 (1)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |top|power_on_reset:por                                                          ; power_on_reset  ; work         ;
+;    |riscvmulti:cpu|                       ; 404 (404)           ; 198 (198)                 ; 2048              ; 0          ; 0    ; 0            ; |top|riscvmulti:cpu                                                              ; riscvmulti      ; work         ;
+;       |altsyncram:RegisterBank_rtl_0|     ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |top|riscvmulti:cpu|altsyncram:RegisterBank_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_5io1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |top|riscvmulti:cpu|altsyncram:RegisterBank_rtl_0|altsyncram_5io1:auto_generated ; altsyncram_5io1 ; work         ;
+;       |altsyncram:RegisterBank_rtl_1|     ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |top|riscvmulti:cpu|altsyncram:RegisterBank_rtl_1                                ; altsyncram      ; work         ;
+;          |altsyncram_5io1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024              ; 0          ; 0    ; 0            ; |top|riscvmulti:cpu|altsyncram:RegisterBank_rtl_1|altsyncram_5io1:auto_generated ; altsyncram_5io1 ; work         ;
+;    |vga:gpu|                              ; 40 (40)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |top|vga:gpu                                                                     ; vga             ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                             ;
++----------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------------------------------------+
+; Name                                                                                   ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                    ;
++----------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------------------------------------+
+; mem:ram|altsyncram:RAM_rtl_0|altsyncram_ohr1:auto_generated|ALTSYNCRAM                 ; AUTO ; Simple Dual Port ; 256          ; 32           ; 256          ; 32           ; 8192 ; db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif ;
+; mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated|ALTSYNCRAM                 ; AUTO ; Simple Dual Port ; 256          ; 32           ; 256          ; 32           ; 8192 ; db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif ;
+; riscvmulti:cpu|altsyncram:RegisterBank_rtl_0|altsyncram_5io1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; None                                   ;
+; riscvmulti:cpu|altsyncram:RegisterBank_rtl_1|altsyncram_5io1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; None                                   ;
++----------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------------------------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top|riscvmulti:cpu|state                                                                                                ;
++-------------------+-------------+-----------------+------------+---------------+------------------+------------------+-------------------+
+; Name              ; state.STORE ; state.WAIT_DATA ; state.LOAD ; state.EXECUTE ; state.FETCH_REGS ; state.WAIT_INSTR ; state.FETCH_INSTR ;
++-------------------+-------------+-----------------+------------+---------------+------------------+------------------+-------------------+
+; state.FETCH_INSTR ; 0           ; 0               ; 0          ; 0             ; 0                ; 0                ; 0                 ;
+; state.WAIT_INSTR  ; 0           ; 0               ; 0          ; 0             ; 0                ; 1                ; 1                 ;
+; state.FETCH_REGS  ; 0           ; 0               ; 0          ; 0             ; 1                ; 0                ; 1                 ;
+; state.EXECUTE     ; 0           ; 0               ; 0          ; 1             ; 0                ; 0                ; 1                 ;
+; state.LOAD        ; 0           ; 0               ; 1          ; 0             ; 0                ; 0                ; 1                 ;
+; state.WAIT_DATA   ; 0           ; 1               ; 0          ; 0             ; 0                ; 0                ; 1                 ;
+; state.STORE       ; 1           ; 0               ; 0          ; 0             ; 0                ; 0                ; 1                 ;
++-------------------+-------------+-----------------+------------+---------------+------------------+------------------+-------------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; riscvmulti:cpu|PC[0]                   ; Stuck at GND due to stuck port data_in ;
+; riscvmulti:cpu|state~3                 ; Lost fanout                            ;
+; riscvmulti:cpu|state~4                 ; Lost fanout                            ;
+; riscvmulti:cpu|state~5                 ; Lost fanout                            ;
+; riscvmulti:cpu|PC[10..31]              ; Lost fanout                            ;
+; Total Number of Removed Registers = 26 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                       ;
++-----------------------+--------------------+----------------------------------------------------------------------+
+; Register name         ; Reason for Removal ; Registers Removed due to This Register                               ;
++-----------------------+--------------------+----------------------------------------------------------------------+
+; riscvmulti:cpu|PC[31] ; Lost Fanouts       ; riscvmulti:cpu|PC[30], riscvmulti:cpu|PC[29], riscvmulti:cpu|PC[28], ;
+;                       ;                    ; riscvmulti:cpu|PC[27], riscvmulti:cpu|PC[26], riscvmulti:cpu|PC[25], ;
+;                       ;                    ; riscvmulti:cpu|PC[24], riscvmulti:cpu|PC[23], riscvmulti:cpu|PC[22], ;
+;                       ;                    ; riscvmulti:cpu|PC[21], riscvmulti:cpu|PC[20], riscvmulti:cpu|PC[19], ;
+;                       ;                    ; riscvmulti:cpu|PC[18], riscvmulti:cpu|PC[17], riscvmulti:cpu|PC[16], ;
+;                       ;                    ; riscvmulti:cpu|PC[15], riscvmulti:cpu|PC[14], riscvmulti:cpu|PC[13], ;
+;                       ;                    ; riscvmulti:cpu|PC[12], riscvmulti:cpu|PC[11], riscvmulti:cpu|PC[10]  ;
++-----------------------+--------------------+----------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 260   ;
+; Number of registers using Synchronous Clear  ; 92    ;
+; Number of registers using Synchronous Load   ; 64    ;
+; Number of registers using Asynchronous Clear ; 20    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 161   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                    ;
++--------------------------------------+-------------------+------+
+; Register Name                        ; Megafunction      ; Type ;
++--------------------------------------+-------------------+------+
+; mem:ram|rd[0..31]                    ; mem:ram|RAM_rtl_0 ; RAM  ;
+; mem:ram|vd[0..5,8..13,16..21,24..29] ; mem:ram|RAM_rtl_1 ; RAM  ;
++--------------------------------------+-------------------+------+
+
+
++----------------------------------------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic                                       ;
++----------------------------------------------+-----------------------------------+
+; Register Name                                ; RAM Name                          ;
++----------------------------------------------+-----------------------------------+
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[0]  ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[1]  ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[2]  ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[3]  ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[4]  ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[5]  ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[6]  ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[7]  ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[8]  ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[9]  ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[10] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[11] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[12] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[13] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[14] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[15] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[16] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[17] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[18] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[19] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[20] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[21] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[22] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[23] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[24] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[25] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[26] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[27] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[28] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[29] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[30] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[31] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[32] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[33] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[34] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[35] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[36] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[37] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[38] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[39] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[40] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[41] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_0_bypass[42] ; riscvmulti:cpu|RegisterBank_rtl_0 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[0]  ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[1]  ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[2]  ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[3]  ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[4]  ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[5]  ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[6]  ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[7]  ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[8]  ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[9]  ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[10] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[11] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[12] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[13] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[14] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[15] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[16] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[17] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[18] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[19] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[20] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[21] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[22] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[23] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[24] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[25] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[26] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[27] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[28] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[29] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[30] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[31] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[32] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[33] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[34] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[35] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[36] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[37] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[38] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[39] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[40] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[41] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
+; riscvmulti:cpu|RegisterBank_rtl_1_bypass[42] ; riscvmulti:cpu|RegisterBank_rtl_1 ;
++----------------------------------------------+-----------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |top|riscvmulti:cpu|rs2[24]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |top|riscvmulti:cpu|rs1[2]           ;
+; 5:1                ; 30 bits   ; 90 LEs        ; 60 LEs               ; 30 LEs                 ; Yes        ; |top|riscvmulti:cpu|PC[5]            ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |top|riscvmulti:cpu|Address[7]       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top|riscvmulti:cpu|ShiftRight0      ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |top|riscvmulti:cpu|ShiftRight0      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top|riscvmulti:cpu|ShiftRight0      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |top|riscvmulti:cpu|ShiftRight0      ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |top|riscvmulti:cpu|ShiftRight0      ;
+; 4:1                ; 27 bits   ; 54 LEs        ; 54 LEs               ; 0 LEs                  ; No         ; |top|riscvmulti:cpu|ShiftRight0      ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |top|riscvmulti:cpu|comb             ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |top|VGA_G                           ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |top|riscvmulti:cpu|ShiftRight0      ;
+; 9:1                ; 31 bits   ; 186 LEs       ; 186 LEs              ; 0 LEs                  ; No         ; |top|riscvmulti:cpu|writeBackData[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Source assignments for mem:ram|altsyncram:RAM_rtl_0|altsyncram_ohr1:auto_generated ;
++---------------------------------+--------------------+------+----------------------+
+; Assignment                      ; Value              ; From ; To                   ;
++---------------------------------+--------------------+------+----------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                    ;
++---------------------------------+--------------------+------+----------------------+
+
+
++------------------------------------------------------------------------------------+
+; Source assignments for mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated ;
++---------------------------------+--------------------+------+----------------------+
+; Assignment                      ; Value              ; From ; To                   ;
++---------------------------------+--------------------+------+----------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                    ;
++---------------------------------+--------------------+------+----------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Source assignments for riscvmulti:cpu|altsyncram:RegisterBank_rtl_0|altsyncram_5io1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------+
+; Assignment                      ; Value              ; From ; To                                   ;
++---------------------------------+--------------------+------+--------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                    ;
++---------------------------------+--------------------+------+--------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Source assignments for riscvmulti:cpu|altsyncram:RegisterBank_rtl_1|altsyncram_5io1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------+
+; Assignment                      ; Value              ; From ; To                                   ;
++---------------------------------+--------------------+------+--------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                    ;
++---------------------------------+--------------------+------+--------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |top ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; VGA_BITS       ; 4     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:gpu ;
++----------------+-------+-----------------------------+
+; Parameter Name ; Value ; Type                        ;
++----------------+-------+-----------------------------+
+; WIDTH          ; 640   ; Signed Integer              ;
+; HEIGHT         ; 480   ; Signed Integer              ;
+; HFRONT         ; 16    ; Signed Integer              ;
+; HSYNC          ; 96    ; Signed Integer              ;
+; HBACK          ; 48    ; Signed Integer              ;
+; HPULSEN        ; 1     ; Signed Integer              ;
+; VFRONT         ; 10    ; Signed Integer              ;
+; VSYNC          ; 2     ; Signed Integer              ;
+; VBACK          ; 33    ; Signed Integer              ;
+; VPULSEN        ; 1     ; Signed Integer              ;
++----------------+-------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: mem:ram|altsyncram:RAM_rtl_0                ;
++------------------------------------+----------------------------------------+----------------+
+; Parameter Name                     ; Value                                  ; Type           ;
++------------------------------------+----------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                      ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                     ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                    ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                     ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                    ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                      ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                              ; Untyped        ;
+; WIDTH_A                            ; 32                                     ; Untyped        ;
+; WIDTHAD_A                          ; 8                                      ; Untyped        ;
+; NUMWORDS_A                         ; 256                                    ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                           ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                   ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                   ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                   ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                   ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                   ; Untyped        ;
+; WIDTH_B                            ; 32                                     ; Untyped        ;
+; WIDTHAD_B                          ; 8                                      ; Untyped        ;
+; NUMWORDS_B                         ; 256                                    ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                 ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                 ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                 ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0                                 ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                           ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                 ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                   ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                   ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                   ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                   ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                   ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                   ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                      ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                      ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                   ; Untyped        ;
+; BYTE_SIZE                          ; 8                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                               ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                   ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                   ; Untyped        ;
+; INIT_FILE                          ; db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                 ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                      ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                 ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                 ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                 ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                 ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                        ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                        ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                  ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                  ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                      ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone V                              ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ohr1                        ; Untyped        ;
++------------------------------------+----------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: mem:ram|altsyncram:RAM_rtl_1                ;
++------------------------------------+----------------------------------------+----------------+
+; Parameter Name                     ; Value                                  ; Type           ;
++------------------------------------+----------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                      ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                     ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                    ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                     ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                    ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                      ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                              ; Untyped        ;
+; WIDTH_A                            ; 32                                     ; Untyped        ;
+; WIDTHAD_A                          ; 8                                      ; Untyped        ;
+; NUMWORDS_A                         ; 256                                    ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                           ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                   ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                   ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                   ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                   ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                   ; Untyped        ;
+; WIDTH_B                            ; 32                                     ; Untyped        ;
+; WIDTHAD_B                          ; 8                                      ; Untyped        ;
+; NUMWORDS_B                         ; 256                                    ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                 ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                 ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                 ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0                                 ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                           ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                 ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                   ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                   ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                   ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                   ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                   ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                   ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                      ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                      ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                   ; Untyped        ;
+; BYTE_SIZE                          ; 8                                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                               ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                   ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                   ; Untyped        ;
+; INIT_FILE                          ; db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                 ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                      ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                 ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                 ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                 ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                 ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                        ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                        ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                  ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                  ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                      ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone V                              ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ohr1                        ; Untyped        ;
++------------------------------------+----------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: riscvmulti:cpu|altsyncram:RegisterBank_rtl_0 ;
++------------------------------------+----------------------+-----------------------------------+
+; Parameter Name                     ; Value                ; Type                              ;
++------------------------------------+----------------------+-----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                           ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                           ;
+; WIDTH_A                            ; 32                   ; Untyped                           ;
+; WIDTHAD_A                          ; 5                    ; Untyped                           ;
+; NUMWORDS_A                         ; 32                   ; Untyped                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WIDTH_B                            ; 32                   ; Untyped                           ;
+; WIDTHAD_B                          ; 5                    ; Untyped                           ;
+; NUMWORDS_B                         ; 32                   ; Untyped                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                           ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; INIT_FILE                          ; UNUSED               ; Untyped                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                           ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                           ;
+; CBXI_PARAMETER                     ; altsyncram_5io1      ; Untyped                           ;
++------------------------------------+----------------------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: riscvmulti:cpu|altsyncram:RegisterBank_rtl_1 ;
++------------------------------------+----------------------+-----------------------------------+
+; Parameter Name                     ; Value                ; Type                              ;
++------------------------------------+----------------------+-----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                           ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                           ;
+; WIDTH_A                            ; 32                   ; Untyped                           ;
+; WIDTHAD_A                          ; 5                    ; Untyped                           ;
+; NUMWORDS_A                         ; 32                   ; Untyped                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WIDTH_B                            ; 32                   ; Untyped                           ;
+; WIDTHAD_B                          ; 5                    ; Untyped                           ;
+; NUMWORDS_B                         ; 32                   ; Untyped                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                           ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; INIT_FILE                          ; UNUSED               ; Untyped                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                           ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                           ;
+; CBXI_PARAMETER                     ; altsyncram_5io1      ; Untyped                           ;
++------------------------------------+----------------------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                         ;
++-------------------------------------------+----------------------------------------------+
+; Name                                      ; Value                                        ;
++-------------------------------------------+----------------------------------------------+
+; Number of entity instances                ; 4                                            ;
+; Entity Instance                           ; mem:ram|altsyncram:RAM_rtl_0                 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                    ;
+;     -- WIDTH_A                            ; 32                                           ;
+;     -- NUMWORDS_A                         ; 256                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                 ;
+;     -- WIDTH_B                            ; 32                                           ;
+;     -- NUMWORDS_B                         ; 256                                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                     ;
+; Entity Instance                           ; mem:ram|altsyncram:RAM_rtl_1                 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                    ;
+;     -- WIDTH_A                            ; 32                                           ;
+;     -- NUMWORDS_A                         ; 256                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                 ;
+;     -- WIDTH_B                            ; 32                                           ;
+;     -- NUMWORDS_B                         ; 256                                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                     ;
+; Entity Instance                           ; riscvmulti:cpu|altsyncram:RegisterBank_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                    ;
+;     -- WIDTH_A                            ; 32                                           ;
+;     -- NUMWORDS_A                         ; 32                                           ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                 ;
+;     -- WIDTH_B                            ; 32                                           ;
+;     -- NUMWORDS_B                         ; 32                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                     ;
+; Entity Instance                           ; riscvmulti:cpu|altsyncram:RegisterBank_rtl_1 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                    ;
+;     -- WIDTH_A                            ; 32                                           ;
+;     -- NUMWORDS_A                         ; 32                                           ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                 ;
+;     -- WIDTH_B                            ; 32                                           ;
+;     -- NUMWORDS_B                         ; 32                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                     ;
++-------------------------------------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mem:ram"                                                                                  ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; vd[31..30] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vd[23..22] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vd[15..14] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vd[7..6]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 260                         ;
+;     CLR SCLR          ; 10                          ;
+;     ENA               ; 79                          ;
+;     ENA CLR SCLR      ; 10                          ;
+;     ENA SCLR          ; 8                           ;
+;     ENA SCLR SLD      ; 64                          ;
+;     plain             ; 89                          ;
+; arriav_lcell_comb     ; 504                         ;
+;     arith             ; 87                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 29                          ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 8                           ;
+;         5 data inputs ; 36                          ;
+;     extend            ; 9                           ;
+;         7 data inputs ; 9                           ;
+;     normal            ; 375                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 25                          ;
+;         4 data inputs ; 74                          ;
+;         5 data inputs ; 155                         ;
+;         6 data inputs ; 101                         ;
+;     shared            ; 33                          ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 32                          ;
+; boundary_port         ; 80                          ;
+; stratixv_ram_block    ; 120                         ;
+;                       ;                             ;
+; Max LUT depth         ; 9.10                        ;
+; Average LUT depth     ; 4.66                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Wed Dec  3 09:16:20 2025
+Info: Command: quartus_map --64bit --read_settings_files=on --source=./dec7seg.sv --source=./mem.sv --source=./power_on_reset.sv --source=./riscvmulti.sv --source=./top.sv --source=./vga.sv 10-riscv-vga
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file dec7seg.sv
+    Info (12023): Found entity 1: dec7seg File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/dec7seg.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mem.sv
+    Info (12023): Found entity 1: mem File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/mem.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file power_on_reset.sv
+    Info (12023): Found entity 1: power_on_reset File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/power_on_reset.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file riscvmulti.sv
+    Info (12023): Found entity 1: riscvmulti File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/riscvmulti.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file top.sv
+    Info (12023): Found entity 1: top File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file vga.sv
+    Info (12023): Found entity 1: vga File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/vga.sv Line: 1
+Info (12127): Elaborating entity "top" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at top.sv(47): object "isRAM" assigned a value but never read File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 47
+Warning (10230): Verilog HDL assignment warning at top.sv(60): truncated value with size 32 to match size of target (10) File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 60
+Warning (10230): Verilog HDL assignment warning at top.sv(62): truncated value with size 32 to match size of target (24) File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 62
+Warning (10230): Verilog HDL assignment warning at top.sv(65): truncated value with size 32 to match size of target (4) File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 65
+Warning (10230): Verilog HDL assignment warning at top.sv(66): truncated value with size 32 to match size of target (4) File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 66
+Warning (10230): Verilog HDL assignment warning at top.sv(67): truncated value with size 32 to match size of target (4) File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 67
+Info (12128): Elaborating entity "power_on_reset" for hierarchy "power_on_reset:por" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 34
+Warning (10230): Verilog HDL assignment warning at power_on_reset.sv(8): truncated value with size 5 to match size of target (4) File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/power_on_reset.sv Line: 8
+Info (12128): Elaborating entity "riscvmulti" for hierarchy "riscvmulti:cpu" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 37
+Warning (10036): Verilog HDL or VHDL warning at riscvmulti.sv(20): object "isALUimm" assigned a value but never read File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/riscvmulti.sv Line: 20
+Warning (10036): Verilog HDL or VHDL warning at riscvmulti.sv(25): object "isLUI" assigned a value but never read File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/riscvmulti.sv Line: 25
+Warning (10036): Verilog HDL or VHDL warning at riscvmulti.sv(54): object "shamt" assigned a value but never read File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/riscvmulti.sv Line: 54
+Warning (10230): Verilog HDL assignment warning at riscvmulti.sv(77): truncated value with size 33 to match size of target (32) File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/riscvmulti.sv Line: 77
+Info (12128): Elaborating entity "mem" for hierarchy "mem:ram" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 40
+Warning (10850): Verilog HDL warning at mem.sv(12): number of words (85) in memory file does not match the number of elements in the address range [0:255] File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/mem.sv Line: 12
+Info (12128): Elaborating entity "vga" for hierarchy "vga:gpu" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 43
+Warning (10230): Verilog HDL assignment warning at vga.sv(15): truncated value with size 10 to match size of target (6) File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/vga.sv Line: 15
+Warning (10230): Verilog HDL assignment warning at vga.sv(16): truncated value with size 10 to match size of target (6) File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/vga.sv Line: 16
+Info (12128): Elaborating entity "dec7seg" for hierarchy "dec7seg:hex0" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 51
+Warning (276020): Inferred RAM node "riscvmulti:cpu|RegisterBank_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Warning (276020): Inferred RAM node "riscvmulti:cpu|RegisterBank_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Info (19000): Inferred 4 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "mem:ram|RAM_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 8
+        Info (286033): Parameter NUMWORDS_B set to 256
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "mem:ram|RAM_rtl_1" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 8
+        Info (286033): Parameter NUMWORDS_B set to 256
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "riscvmulti:cpu|RegisterBank_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "riscvmulti:cpu|RegisterBank_rtl_1" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12130): Elaborated megafunction instantiation "mem:ram|altsyncram:RAM_rtl_0"
+Info (12133): Instantiated megafunction "mem:ram|altsyncram:RAM_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "8"
+    Info (12134): Parameter "NUMWORDS_B" = "256"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ohr1.tdf
+    Info (12023): Found entity 1: altsyncram_ohr1 File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_ohr1.tdf Line: 28
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif" contains "don't care" values -- overwriting them with 0s File: /opt/intelFPGA/24.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif" contains "don't care" values -- overwriting them with 0s File: /opt/intelFPGA/24.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12130): Elaborated megafunction instantiation "mem:ram|altsyncram:RAM_rtl_1"
+Info (12133): Instantiated megafunction "mem:ram|altsyncram:RAM_rtl_1" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "8"
+    Info (12134): Parameter "NUMWORDS_B" = "256"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/10-riscv-vga.ram0_mem_1c3ed.hdl.mif"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12130): Elaborated megafunction instantiation "riscvmulti:cpu|altsyncram:RegisterBank_rtl_0"
+Info (12133): Instantiated megafunction "riscvmulti:cpu|altsyncram:RegisterBank_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_5io1.tdf
+    Info (12023): Found entity 1: altsyncram_5io1 File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_5io1.tdf Line: 28
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated|ram_block1a6" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_ohr1.tdf Line: 218
+        Warning (14320): Synthesized away node "mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated|ram_block1a7" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_ohr1.tdf Line: 248
+        Warning (14320): Synthesized away node "mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated|ram_block1a14" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_ohr1.tdf Line: 458
+        Warning (14320): Synthesized away node "mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated|ram_block1a15" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_ohr1.tdf Line: 488
+        Warning (14320): Synthesized away node "mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated|ram_block1a22" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_ohr1.tdf Line: 698
+        Warning (14320): Synthesized away node "mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated|ram_block1a23" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_ohr1.tdf Line: 728
+        Warning (14320): Synthesized away node "mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated|ram_block1a30" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_ohr1.tdf Line: 938
+        Warning (14320): Synthesized away node "mem:ram|altsyncram:RAM_rtl_1|altsyncram_ohr1:auto_generated|ram_block1a31" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/db/altsyncram_ohr1.tdf Line: 968
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 7
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 7
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 7
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 7
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 7
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 7
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 10
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 10
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 25 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/10-riscv-vga.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 10 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[0]" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[1]" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[2]" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[3]" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[4]" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[5]" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[6]" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[7]" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[8]" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[9]" File: /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/top.sv Line: 4
+Info (21057): Implemented 918 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 69 output pins
+    Info (21061): Implemented 718 logic cells
+    Info (21064): Implemented 120 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
+    Info: Peak virtual memory: 515 megabytes
+    Info: Processing ended: Wed Dec  3 09:16:27 2025
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:14
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/leandrocolaes/Documents/1. Obsidian/1. Cursos/2025.2/ARQ1/1. Lab/ARQ1-Lab10 - VGA/10-riscv-vga_virgem/10-riscv-vga.map.smsg.
+
+

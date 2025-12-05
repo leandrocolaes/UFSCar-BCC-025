@@ -1,0 +1,60 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+% Título do Documento
+
+\date{} % Remove a data
+
+\begin{document}
+
+	Dificilmente é possível obter essa amostra.
+	
+	\begin{itemize}
+		\item Hipótese Nula ($H_0$): A média da população é 20. ($H_0: \mu = 20$)
+		\item Hipótese Alternativa ($H_1$): A média da população não é 20. ($H_1: \mu \neq 20$)
+	\end{itemize}
+	
+	Os dados são:
+	\begin{itemize}
+		\item Média da população ($H_0$): $\mu = 20$
+		\item Média da amostra: $\bar{x} = 24$
+		\item Desvio-padrão da amostra: $s = 4,1$
+		\item Tamanho da amostra: $n = 9$
+	\end{itemize}
+	
+	A fórmula para a estatística t é:
+	$$ t = \frac{\bar{x} - \mu}{s / \sqrt{n}} $$
+	
+	Calculamos o erro padrão da média:
+	$$ \frac{s}{\sqrt{n}} = \frac{4,1}{\sqrt{9}} = \frac{4,1}{3} \approx 1,367 $$
+	
+	Agora, calculamos o valor t:
+	$$ t_{\text{calculado}} = \frac{24 - 20}{1,367} = \frac{4}{1,367} \approx 2,926 $$
+	
+	Para determinar se o resultado é "provável", comparamos nosso $t_{\text{calculado}}$ com um valor $t_{\text{crítico}}$ de uma tabela t. Usamos um nível de significância padrão, $\alpha = 0,05$.
+	
+	Os graus de liberdade ($gl$) são $n - 1 = 9 - 1 = 8$.
+	
+	Para um teste de duas caudas com $\alpha = 0,05$ e $gl = 8$, o valor crítico é:
+	$$ t_{\text{crítico}} \approx 2,306 $$
+	
+	Comparamos os valores:
+	$$ |t_{\text{calculado}}| > t_{\text{crítico}} $$
+	$$ 2,926 > 2,306 $$
+	
+	Como o nosso valor t calculado (2,926) é maior que o valor crítico (2,306), ele cai na "região de rejeição".
+	
+	O resultado da amostra é estatisticamente significante e altamente improvável de ocorrer por acaso, se a média da população fosse realmente 20.
+	
+	A probabilidade de obter tal amostra é muito baixa (especificamente, o valor-p é de 0,019, que é menor que 0,05).
+	
+	Portanto, concluímos que a média real da população da qual a amostra foi retirada é, provavelmente, diferente de 20(e, mais especificamente, maior que 20).
+	
+\end{document}

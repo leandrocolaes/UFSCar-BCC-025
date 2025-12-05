@@ -1,0 +1,11 @@
+1. y = 3x²-5, Ax é um incremento de x, mostre a formula geral de dy e Ay.
+
+2. Faça as implicitas:
+a) x²y³+xy²+5x -5 = 0
+b) x²sen(x)
+
+3. 2sen(x) - cos(2x). Classifique os extremos locias no dominio [0, 2pi].
+
+4. x⁵-5x³, extremos locais, concavidade, pontos criticos
+
+5. 2x/(9 - x²) = dominio, continuidade, simetria, assintona, inflexão, extremos.
